@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEET PHYSICS XI EXAM SERIES 7 SET A - Thermal Properties & Calorimetry</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- MathJax for rendering LaTeX math and physics equations -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Chart.js for graphical reporting -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- html2canvas for generating PNG scorecard -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+        
+        /* Anti-photography watermark grid overlay */
+        .watermark-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.12;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='220' viewBox='0 0 280 220'%3E%3Ctext x='20' y='60' fill='%23000' font-size='12' font-weight='bold' font-family='sans-serif' transform='rotate(-20 20,60)'%3ESOUMENDRA SIR BIOLOGY CLASSES%3C/text%3E%3Ctext x='20' y='140' fill='%23000' font-size='11' font-family='sans-serif' transform='rotate(-20 20,140)'%3E8910587106 • CONFIDENTIAL%3C/text%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+
+        /* Palette dots status styling */
+        .dot-answered { background-color: #22c55e; color: white; border-color: #16a34a; }
+        .dot-skipped { background-color: #ef4444; color: white; border-color: #dc2626; }
+        .dot-review { background-color: #eab308; color: white; border-color: #ca8a04; }
+        .dot-unvisited { background-color: #e5e7eb; color: #4b5563; border-color: #d1d5db; }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between overflow-x-hidden" oncontextmenu="return false;">
+
+    <!-- Anti-Camera & Watermark Grid -->
+    <div class="watermark-overlay" id="watermark"></div>
+
+    <!-- Top Header Navigation -->
+    <header class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center border-b border-indigo-700/50">
+            <div>
+                <h1 class="text-xl md:text-2xl font-extrabold tracking-tight text-amber-400">
+                    Soumendra Sir's Biology Classes-8910587106
+                </h1>
+                <p class="text-xs md:text-sm text-indigo-200 font-medium">
+                    NEET PHYSICS XI EXAM SERIES 7 SET A • Thermal Properties & Calorimetry
+                </p>
+            </div>
+            <div id="header-timer" class="hidden flex items-center space-x-2 bg-slate-800/80 px-4 py-2 rounded-lg border border-amber-500/40">
+                <i class="fa-solid fa-stopwatch text-amber-400 animate-pulse text-lg"></i>
+                <span class="text-xs text-slate-300 font-semibold uppercase">Time Left:</span>
+                <span id="timer-display" class="font-mono text-xl font-bold text-amber-300">01:00:00</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto p-3 md:p-6">
+
+        <!-- LOGIN / LOGIN SECURITY SCREEN -->
+        <div id="login-screen" class="max-w-xl mx-auto bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden my-6">
+            <div class="bg-indigo-900 p-6 text-white text-center relative">
+                <div class="absolute top-2 right-3 text-[10px] text-indigo-300 bg-indigo-950 px-2 py-0.5 rounded">OFFICIAL CBT PORTAL</div>
+                <h2 class="text-2xl font-bold text-amber-300 mb-1">CBT Examination Login</h2>
+                <p class="text-xs text-indigo-100">NEET XI Series 7 Set A (Total Marks: 180 | Duration: 60 Mins)</p>
+            </div>
+            
+            <form id="login-form" onsubmit="validateLogin(event)" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Candidate Full Name</label>
+                    <input type="text" id="candidate-name" required placeholder="Enter student's full name" 
+                        class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none text-sm font-medium">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Today's Exam Password (DDMMYYYY)</label>
+                    <input type="password" id="exam-password" required placeholder="Enter DDMMYYYY password" 
+                        class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none text-sm font-mono">
+                    <p class="text-[11px] text-slate-500 mt-1"><i class="fa-solid fa-circle-info mr-1 text-indigo-600"></i> Password matches today's date e.g. <span id="pwd-hint-date" class="font-bold">10102026</span></p>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Captcha Verification</label>
+                    <div class="flex items-center space-x-3 mb-2">
+                        <div id="captcha-box" class="bg-slate-200 border border-slate-400 font-mono font-bold text-lg tracking-widest px-4 py-2 rounded text-slate-800 select-none line-through italic decoration-rose-500">
+                            9X2B7
+                        </div>
+                        <button type="button" onclick="generateCaptcha()" class="p-2 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded text-slate-600 transition">
+                            <i class="fa-solid fa-rotate"></i>
+                        </button>
+                    </div>
+                    <input type="text" id="captcha-input" required placeholder="Enter captcha code" 
+                        class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none text-sm font-medium uppercase">
+                </div>
+
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-3 rounded text-xs text-amber-900 space-y-1">
+                    <p class="font-bold"><i class="fa-solid fa-shield-halved mr-1"></i> Examination Rules & System Directives:</p>
+                    <ul class="list-disc list-inside space-y-0.5 text-[11px] text-amber-800">
+                        <li>Total Questions: <b>45</b> | Total Time: <b>60 Minutes</b> | Total Marks: <b>180</b>.</li>
+                        <li>Marking Scheme: <b>+4</b> for correct answer, <b>-1</b> for wrong answer, <b>0</b> for unattempted.</li>
+                        <li>Fullscreen enforcement active. Tab switching triggers <b>3-strike automatic submission</b>.</li>
+                        <li>This exam officially belongs to <b>SOUMENDRA SIR BIOLOGY CLASSES (8910587106)</b>.</li>
+                    </ul>
+                </div>
+
+                <div id="login-error" class="hidden text-xs text-red-600 font-semibold bg-red-50 p-2.5 rounded border border-red-200"></div>
+
+                <button type="submit" class="w-full py-3 bg-indigo-700 hover:bg-indigo-800 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition text-sm uppercase tracking-wide">
+                    Start Test in Fullscreen Mode <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </form>
+        </div>
+
+        <!-- CBT EXAMINATION INTERFACE -->
+        <div id="cbt-interface" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-6">
+            
+            <!-- Left Side: Question Container (3 Cols) -->
+            <div class="lg:col-span-3 bg-white rounded-xl shadow-md border border-slate-200 flex flex-col justify-between overflow-hidden">
+                
+                <!-- Question Header Bar -->
+                <div class="bg-slate-100 border-b border-slate-200 p-4 flex justify-between items-center">
+                    <div>
+                        <span class="text-xs font-bold text-indigo-700 bg-indigo-100 px-2.5 py-1 rounded-full uppercase tracking-wider" id="q-category-tag">
+                            Question Category
+                        </span>
+                        <h3 class="text-lg font-extrabold text-slate-800 mt-1" id="q-number-title">
+                            Question 1 of 45
+                        </h3>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs text-slate-500 block">Marking Scheme</span>
+                        <span class="text-xs font-bold text-emerald-600">+4</span> / <span class="text-xs font-bold text-rose-600">-1</span>
+                    </div>
+                </div>
+
+                <!-- Question Body & Options area -->
+                <div class="p-5 md:p-6 space-y-6 overflow-y-auto max-h-[60vh]" id="question-scroll-area">
+                    <div id="question-text" class="text-sm md:text-base text-slate-800 leading-relaxed font-medium space-y-3">
+                        <!-- Dynamic Question Text rendered here -->
+                    </div>
+
+                    <div id="options-container" class="space-y-3 pt-2">
+                        <!-- Options loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Footer Navigation Buttons -->
+                <div class="bg-slate-50 border-t border-slate-200 p-4 flex flex-wrap gap-2 justify-between items-center">
+                    <div class="flex space-x-2">
+                        <button onclick="markForReview()" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold rounded-lg transition shadow-sm">
+                            <i class="fa-solid fa-bookmark mr-1"></i> Mark for Review
+                        </button>
+                        <button onclick="clearResponse()" class="px-3 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 text-xs font-bold rounded-lg transition">
+                            Clear Response
+                        </button>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button onclick="navigateQuestion(-1)" id="btn-prev" class="px-4 py-2 bg-slate-700 hover:bg-slate-800 text-white text-xs font-bold rounded-lg transition disabled:opacity-40">
+                            <i class="fa-solid fa-chevron-left mr-1"></i> Previous
+                        </button>
+                        <button onclick="navigateQuestion(1)" id="btn-next" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg transition shadow-sm">
+                            Save & Next <i class="fa-solid fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side Column: Question Palette Matrix -->
+            <div class="lg:col-span-1 space-y-4">
+                
+                <!-- Candidate Info Card -->
+                <div class="bg-white p-4 rounded-xl shadow-md border border-slate-200">
+                    <div class="flex items-center space-x-3 border-b border-slate-100 pb-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-indigo-900 text-amber-400 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <div class="overflow-hidden">
+                            <p class="text-xs text-slate-400 uppercase font-semibold">Candidate</p>
+                            <h4 id="display-candidate-name" class="text-sm font-bold text-slate-800 truncate">Candidate Name</h4>
+                        </div>
+                    </div>
+
+                    <!-- Legend Matrix -->
+                    <div class="grid grid-cols-2 gap-2 text-[11px] font-medium text-slate-600">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-4 h-4 rounded-full dot-answered border inline-block flex-shrink-0"></span>
+                            <span>Answered</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-4 h-4 rounded-full dot-skipped border inline-block flex-shrink-0"></span>
+                            <span>Not Answered</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-4 h-4 rounded-full dot-review border inline-block flex-shrink-0"></span>
+                            <span>Marked Review</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-4 h-4 rounded-full dot-unvisited border inline-block flex-shrink-0"></span>
+                            <span>Not Visited</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Questions Palette Matrix Grid -->
+                <div class="bg-white p-4 rounded-xl shadow-md border border-slate-200">
+                    <h4 class="text-xs font-extrabold text-slate-700 uppercase mb-3 border-b pb-2">
+                        Question Palette (45 Questions)
+                    </h4>
+                    
+                    <div id="palette-grid" class="grid grid-cols-5 gap-2 max-h-[40vh] overflow-y-auto pr-1">
+                        <!-- Dynamic Question Navigation Dots -->
+                    </div>
+
+                    <div class="mt-5 pt-3 border-t border-slate-200">
+                        <button onclick="confirmSubmitTest()" class="w-full py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs uppercase rounded-lg shadow transition tracking-wider">
+                            <i class="fa-solid fa-paper-plane mr-1"></i> Submit Examination
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RESULTS & FEEDBACK REPORT SCREEN -->
+        <div id="result-screen" class="hidden max-w-4xl mx-auto space-y-6 my-4">
+            
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+                <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white p-6 text-center relative">
+                    <div class="inline-block px-3 py-1 bg-amber-400 text-slate-900 text-xs font-bold rounded-full mb-2 uppercase">Official Scorecard</div>
+                    <h2 class="text-2xl font-black text-amber-300">EXAMINATION PERFORMANCE REPORT</h2>
+                    <p class="text-xs text-indigo-200 mt-1">Soumendra Sir's Biology Classes-8910587106</p>
+                </div>
+
+                <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                    
+                    <!-- Stats Overview -->
+                    <div class="md:col-span-2 space-y-4">
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                            <div class="bg-slate-50 border border-slate-200 p-3 rounded-xl">
+                                <span class="text-[10px] text-slate-500 uppercase font-bold block">Total Marks</span>
+                                <span class="text-xl font-extrabold text-indigo-700" id="res-score">0 / 180</span>
+                            </div>
+                            <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-xl">
+                                <span class="text-[10px] text-emerald-600 uppercase font-bold block">Correct</span>
+                                <span class="text-xl font-extrabold text-emerald-600" id="res-correct">0</span>
+                            </div>
+                            <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl">
+                                <span class="text-[10px] text-rose-600 uppercase font-bold block">Incorrect</span>
+                                <span class="text-xl font-extrabold text-rose-600" id="res-incorrect">0</span>
+                            </div>
+                            <div class="bg-amber-50 border border-amber-200 p-3 rounded-xl">
+                                <span class="text-[10px] text-amber-600 uppercase font-bold block">Accuracy</span>
+                                <span class="text-xl font-extrabold text-amber-600" id="res-accuracy">0%</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
+                            <p><b>Candidate Name:</b> <span id="res-name" class="font-semibold text-slate-800"></span></p>
+                            <p><b>Exam Series:</b> <span class="font-semibold text-slate-800">NEET PHYSICS XI EXAM SERIES 7 SET A</span></p>
+                            <p><b>Topic:</b> Thermal Properties & Calorimetry</p>
+                            <p><b>Submission Timestamp:</b> <span id="res-timestamp" class="font-mono text-slate-600"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Doughnut Chart Canvas Container -->
+                    <div class="flex flex-col items-center justify-center p-2 bg-slate-50 rounded-xl border border-slate-200">
+                        <h4 class="text-xs font-bold text-slate-600 mb-2 uppercase">Performance Analysis</h4>
+                        <div class="w-44 h-44">
+                            <canvas id="performanceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Anti-Tamper PNG Generator Section -->
+                <div class="bg-indigo-950 p-6 text-center text-white border-t border-indigo-900 space-y-3">
+                    <p class="text-xs text-indigo-200">
+                        To submit your verified scorecard to <b>Soumendra Sir</b>, click the button below to generate a secure anti-tamper certificate image and send via WhatsApp.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <button onclick="generateAndSendWhatsAppPNG()" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow-lg transition flex items-center">
+                            <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Send Verified Result Card to 8910587106
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HIDDEN OFFICIAL CERTIFICATE CARD FOR PNG CAPTURE -->
+            <div id="certificate-card" class="bg-white p-8 border-4 border-indigo-900 rounded-2xl w-[650px] mx-auto text-slate-800 relative hidden" style="font-family: 'Inter', sans-serif;">
+                <div class="text-center border-b-2 border-slate-200 pb-4 mb-4">
+                    <h2 class="text-xl font-black text-indigo-900 uppercase">SOUMENDRA SIR'S BIOLOGY CLASSES</h2>
+                    <p class="text-xs text-slate-500 font-bold">Contact / Official WhatsApp: +91 8910587106</p>
+                    <div class="inline-block bg-amber-400 text-slate-900 text-[10px] font-black px-3 py-0.5 rounded-full mt-2 uppercase">Official CBT Result Certificate</div>
+                </div>
+
+                <div class="space-y-3 text-xs mb-6">
+                    <div class="flex justify-between border-b pb-1">
+                        <span class="text-slate-500 font-bold">Candidate Name:</span>
+                        <span id="cert-name" class="font-black text-slate-900 text-sm"></span>
+                    </div>
+                    <div class="flex justify-between border-b pb-1">
+                        <span class="text-slate-500 font-bold">Exam Topic:</span>
+                        <span class="font-bold text-slate-800">NEET PHYSICS XI EXAM SERIES 7 SET A</span>
+                    </div>
+                    <div class="flex justify-between border-b pb-1">
+                        <span class="text-slate-500 font-bold">Syllabus:</span>
+                        <span class="font-bold text-slate-700">Thermal Properties of Matter & Calorimetry</span>
+                    </div>
+                    <div class="flex justify-between border-b pb-1">
+                        <span class="text-slate-500 font-bold">Date & Time:</span>
+                        <span id="cert-date" class="font-mono text-slate-700"></span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-4 gap-2 text-center my-6 bg-slate-100 p-4 rounded-xl border border-slate-300">
+                    <div>
+                        <span class="text-[10px] font-bold text-slate-500 uppercase block">Total Score</span>
+                        <span id="cert-score" class="text-lg font-black text-indigo-800"></span>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold text-emerald-600 uppercase block">Correct (+4)</span>
+                        <span id="cert-correct" class="text-lg font-black text-emerald-600"></span>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold text-rose-600 uppercase block">Incorrect (-1)</span>
+                        <span id="cert-incorrect" class="text-lg font-black text-rose-600"></span>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold text-amber-600 uppercase block">Accuracy</span>
+                        <span id="cert-accuracy" class="text-lg font-black text-amber-600"></span>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-end pt-4 border-t-2 border-slate-200 text-[10px] text-slate-400">
+                    <div>
+                        <p class="font-bold text-slate-700">OFFICIAL SECURITY STAMP</p>
+                        <p>This exam officially belongs to SOUMENDRA SIR BIOLOGY CLASSES (8910587106).</p>
+                        <p>Digitally Verified CBT Performance Record</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="border-b border-slate-400 w-32 mb-1"></div>
+                        <p class="font-bold text-slate-800">Authorized Signature</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer Banner -->
+    <footer class="bg-slate-900 text-slate-400 text-center text-xs py-3 border-t border-slate-800 mt-6">
+        <p>This exam officially belongs to <b>SOUMENDRA SIR BIOLOGY CLASSES (8910587106)</b>. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript Logic & Master Physics Question Bank -->
+    <script>
+        const rawQuestions = [
+            
+            // --- 10 STATEMENT BASED QUESTIONS ---
+            {
+                category: "Statement Based",
+                text: "<b>Statement I:</b> Water has an anomalous expansion between $0^\\circ\\text{C}$ and $4^\\circ\\text{C}$, expanding when cooled from $4^\\circ\\text{C}$ to $0^\\circ\\text{C}$.<br><b>Statement II:</b> The density of water is maximum at $4^\\circ\\text{C}$, which helps aquatic life survive under frozen lakes.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0
+            },
+            {
+                category: "Statement Based",
+                text: "<b>Statement I:</b> Coefficient of cubical expansion ($\n\\gamma$) of an isotropic solid is thrice its coefficient of linear expansion ($\n\\alpha$).<br><b>Statement II:</b> The relationship between coefficients of thermal expansion is $\\alpha : \\beta : \\gamma = 1 : 2 : 3$.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0
+            },
+            {
+                category: "Statement Based",
+                text: "<b>Statement I:</b> According to Stefan-Boltzmann law, the total radiant energy emitted per unit area per second by a perfect blackbody is directly proportional to the square of its absolute temperature ($T^2$).<br><b>Statement II:</b> A blackbody absorbs all heat radiations incident upon it regardless of wavelength.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is incorrect but Statement II is correct",
+                    "Statement I is correct but Statement II is incorrect"
+                ],
+                correct: 2
+            },
+            {
+                category: "Statement Based",
+                text: "<b>Statement I:</b> Wien's displacement law states that the product of peak wavelength $\\lambda_m$ and absolute temperature $T$ is a constant ($b = 2.898 \\times 10^{-3}\\text{ m}\\cdot\\text{K}$).<br><b>Statement II:</b> As the temperature of a glowing body increases, the peak emission wavelength shifts towards longer wavelengths (red end).",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 2
+            },
+            {
+                category: "Statement Based",
+                text: "<b>Statement I:</b> The principle of calorimetry is based on the law of conservation of energy ($ \\text{Heat Lost} = \\text{Heat Gained} $).<br><b>Statement II:</b> Latent heat of vaporization involves a temperature increase of the substance at constant pressure.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 2
+            },
+            {
+                category: "Statement Based",
+                text: "<b>Statement I:</b> Cooking is faster in a pressure cooker because elevated pressure raises the boiling point of water.<br><b>Statement II:</b> Boiling point of liquid increases with increase in external atmospheric pressure.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0
+            },
+            {
+                category: "Statement Based",
+                text: "<b>Statement I:</b> Good reflectors of heat radiation are poor emitters of heat radiation.<br><b>Statement II:</b> According to Kirchhoff's law of thermal radiation, at a given temperature, good absorbers are good emitters.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0
+            },
+            {
+                category: "Statement Based",
+                text: "<b>Statement I:</b> Thermal resistance of a conducting slab of length $L$, cross-sectional area $A$, and thermal conductivity $K$ is given by $R_H = \\frac{L}{KA}$.<br><b>Statement II:</b> In steady-state thermal conduction, the rate of heat flow varies linearly along the length of the conductor.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 2
+            },
+            {
+                category: "Statement Based",
+                text: "<b>Statement I:</b> Newton's law of cooling is a special case of Stefan's law when temperature difference between body and surroundings is small.<br><b>Statement II:</b> The rate of loss of heat by cooling is directly proportional to temperature difference between body and surroundings.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0
+            },
+            {
+                category: "Statement Based",
+                text: "<b>Statement I:</b> Specific heat capacity of water is very high ($4186\\text{ J/kg}\\cdot\\text{K}$), making it an ideal coolant in automobile radiators.<br><b>Statement II:</b> Molar heat capacity depends on the molar mass of the substance.",
+                options: [
+                    "Both Statement I and Statement II are correct",
+                    "Both Statement I and Statement II are incorrect",
+                    "Statement I is correct but Statement II is incorrect",
+                    "Statement I is incorrect but Statement II is correct"
+                ],
+                correct: 0
+            },
+
+            // --- 5 ASSERTION & REASONING QUESTIONS ---
+            {
+                category: "Assertion & Reason",
+                text: "<b>Assertion (A):</b> A bimetallic strip made of brass and iron bends when heated, with brass on the convex side.<br><b>Reason (R):</b> The coefficient of linear expansion of brass ($\n\\alpha_{\\text{brass}}$) is greater than that of iron ($\n\\alpha_{\\text{iron}}$).",
+                options: [
+                    "Both A and R are true, and R is the correct explanation of A",
+                    "Both A and R are true, but R is NOT the correct explanation of A",
+                    "A is true, but R is false",
+                    "A is false, but R is true"
+                ],
+                correct: 0
+            },
+            {
+                category: "Assertion & Reason",
+                text: "<b>Assertion (A):</b> Thermal radiation travels through vacuum at the speed of light.<br><b>Reason (R):</b> Thermal radiation is electromagnetic in nature and does not require a material medium for propagation.",
+                options: [
+                    "Both A and R are true, and R is the correct explanation of A",
+                    "Both A and R are true, but R is NOT the correct explanation of A",
+                    "A is true, but R is false",
+                    "A is false, but R is true"
+                ],
+                correct: 0
+            },
+            {
+                category: "Assertion & Reason",
+                text: "<b>Assertion (A):</b> Water equivalent of a body is defined as the mass of water that absorbs or emits the same heat as the body for a unit change in temperature.<br><b>Reason (R):</b> Water equivalent is given by $W = m \\times s$, where $m$ is mass and $s$ is specific heat capacity.",
+                options: [
+                    "Both A and R are true, and R is the correct explanation of A",
+                    "Both A and R are true, but R is NOT the correct explanation of A",
+                    "A is true, but R is false",
+                    "A is false, but R is true"
+                ],
+                correct: 0
+            },
+            {
+                category: "Assertion & Reason",
+                text: "<b>Assertion (A):</b> A body cools faster from $90^\\circ\\text{C}$ to $80^\\circ\\text{C}$ than from $40^\\circ\\text{C}$ to $30^\\circ\\text{C}$ in ambient air at $20^\\circ\\text{C}$.<br><b>Reason (R):</b> According to Newton's law of cooling, rate of cooling is proportional to temperature difference $(\\Delta T)$.",
+                options: [
+                    "Both A and R are true, and R is the correct explanation of A",
+                    "Both A and R are true, but R is NOT the correct explanation of A",
+                    "A is true, but R is false",
+                    "A is false, but R is true"
+                ],
+                correct: 0
+            },
+            {
+                category: "Assertion & Reason",
+                text: "<b>Assertion (A):</b> Melting point of ice decreases with an increase in external pressure.<br><b>Reason (R):</b> Ice expands on melting, so higher pressure opposes expansion.",
+                options: [
+                    "Both A and R are true, and R is the correct explanation of A",
+                    "Both A and R are true, but R is NOT the correct explanation of A",
+                    "A is true, but R is false",
+                    "A is false, but R is true"
+                ],
+                correct: 2
+            },
+
+            // --- 5 CASE STUDY QUESTIONS ---
+            {
+                category: "Case Study",
+                text: "<b>Case Study Context:</b> Calorimetry principles govern heat transfer during phase changes. Latent heat of fusion for ice is $80\\text{ cal/g}$ ($3.36 \\times 10^5\\text{ J/kg}$) and latent heat of vaporization for water is $540\\text{ cal/g}$ ($2.26 \\times 10^6\\text{ J/kg}$). Specific heat of water is $1\\text{ cal/g}\\cdot^\\circ\\text{C}$.<br><br><b>Question 1:</b> Calculate heat required to convert $10\\text{ g}$ of ice at $-10^\\circ\\text{C}$ into steam at $100^\\circ\\text{C}$. (Specific heat of ice $= 0.5\\text{ cal/g}\\cdot^\\circ\\text{C}$).",
+                options: ["7250 cal", "6850 cal", "7400 cal", "8000 cal"],
+                correct: 0
+            },
+            {
+                category: "Case Study",
+                text: "<b>Case Study Context:</b> When two liquid samples are mixed thermally in an insulated calorimeter, final equilibrium temperature $T_f$ is governed by $\\sum m_i s_i (T_f - T_i) = 0$.<br><br><b>Question 2:</b> $100\\text{ g}$ of water at $80^\\circ\\text{C}$ is mixed with $200\\text{ g}$ of water at $20^\\circ\\text{C}$ in a calorimeter of negligible heat capacity. What is the final equilibrium temperature?",
+                options: ["40°C", "50°C", "45°C", "35°C"],
+                correct: 0
+            },
+            {
+                category: "Case Study",
+                text: "<b>Case Study Context:</b> Linear thermal expansion causes mechanical stress if a rod clamped at both ends undergoes a temperature change $\\Delta T$. Thermal stress is $Y \\alpha \\Delta T$, where $Y$ is Young's Modulus.<br><br><b>Question 3:</b> A steel rod of length $1\\text{ m}$ and area $1\\text{ cm}^2$ is clamped between rigid supports. If temperature increases by $50^\\circ\\text{C}$, find thermal force developed ($Y = 2 \\times 10^{11}\\text{ N/m}^2$, $\\alpha = 1.2 \\times 10^{-5}\\text{ K}^{-1}$).",
+                options: ["12000 N", "24000 N", "6000 N", "18000 N"],
+                correct: 0
+            },
+            {
+                category: "Case Study",
+                text: "<b>Case Study Context:</b> Newton's Law of Cooling states $\\frac{dT}{dt} = -K(T - T_0)$, approximated as $\\frac{T_1 - T_2}{t} = K\\left(\\frac{T_1 + T_2}{2} - T_0\\right)$.<br><br><b>Question 4:</b> A body cools from $80^\\circ\\text{C}$ to $60^\\circ\\text{C}$ in $5\\text{ minutes}$ when surrounding temperature is $20^\\circ\\text{C}$. How long will it take to cool from $60^\\circ\\text{C}$ to $40^\\circ\\text{C}$?",
+                options: ["10 minutes", "7.5 minutes", "15 minutes", "8 minutes"],
+                correct: 0
+            },
+            {
+                category: "Case Study",
+                text: "<b>Case Study Context:</b> Heat transfer via conduction through two composite rods in series is given by $H = \\frac{T_1 - T_2}{R_1 + R_2}$, where $R = \\frac{L}{KA}$.<br><br><b>Question 5:</b> Two rods of equal length and cross-section but thermal conductivities $K_1$ and $K_2$ are joined in series. What is equivalent thermal conductivity $K_{eq}$?",
+                options: [
+                    "\\frac{2K_1 K_2}{K_1 + K_2}",
+                    "\\frac{K_1 + K_2}{2}",
+                    "\\sqrt{K_1 K_2}",
+                    "\\frac{K_1 K_2}{K_1 + K_2}"
+                ],
+                correct: 0
+            },
+
+            // --- 25 NUMERICAL / CRITICAL ANALYTICAL QUESTIONS ---
+            {
+                category: "Numerical / Critical",
+                text: "At what temperature do the Celsius and Fahrenheit temperature scales read the exact same numerical value?",
+                options: ["-40°", "-20°", "0°", "+40°"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "A mercury thermometer is calibrated such that ice point is $20^\\circ\\text{X}$ and steam point is $180^\\circ\\text{X}$. What reading on this custom scale corresponds to $50^\\circ\\text{C}$?",
+                options: ["100°X", "90°X", "110°X", "80°X"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "A pendulum clock made of brass ($\n\\alpha = 1.9 \\times 10^{-5}\\text{ K}^{-1}$) keeps correct time at $20^\\circ\\text{C}$. How many seconds per day will it lose or gain if temperature rises to $40^\\circ\\text{C}$?",
+                options: ["Loses 16.41 s/day", "Gains 16.41 s/day", "Loses 8.2 s/day", "Gains 32.8 s/day"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "An iron ring of radius $10\\text{ cm}$ at $20^\\circ\\text{C}$ needs to be fitted onto a wooden wheel of radius $10.1\\text{ cm}$. To what temperature must the iron ring be heated? ($\n\\alpha_{\\text{iron}} = 1.2 \\times 10^{-5}\\text{ K}^{-1}$)",
+                options: ["853.3°C", "833.3°C", "750°C", "920°C"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "A density bottle contains $500\\text{ g}$ of liquid at $0^\\circ\\text{C}$. When heated to $100^\\circ\\text{C}$, $10\\text{ g}$ of liquid overflows. Calculate coefficient of apparent expansion ($\n\\gamma_{app}$) of liquid.",
+                options: ["2.04 × 10⁻⁴ /°C", "1.5 × 10⁻⁴ /°C", "3.1 × 10⁻⁴ /°C", "1.0 × 10⁻⁴ /°C"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "If coefficient of volume expansion of a liquid is $\n\\gamma = 4.9 \\times 10^{-4}\\text{ K}^{-1}$, calculate percentage change in density for a temperature rise of $50^\\circ\\text{C}$.",
+                options: ["2.45% decrease", "2.45% increase", "4.9% decrease", "1.22% decrease"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "A blackbody at $227^\\circ\\text{C}$ emits heat radiation at rate $E = 20\\text{ W/cm}^2$. What is the rate of heat radiation when its temperature is increased to $727^\\circ\\text{C}$?",
+                options: ["320 W/cm²", "160 W/cm²", "640 W/cm²", "80 W/cm²"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "The peak radiation wavelength emitted by a blackbody at temperature $2000\\text{ K}$ is $\n\\lambda_m = 1.5\\text{ }\\mu\\text{m}$. What will be peak wavelength emitted when temperature increases to $3000\\text{ K}$?",
+                options: ["1.0 μm", "2.25 μm", "0.75 μm", "1.25 μm"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "How much ice at $0^\\circ\\text{C}$ is needed to cool $200\\text{ g}$ of water from $25^\\circ\\text{C}$ to $0^\\circ\\text{C}$? ($L_{fusion} = 80\\text{ cal/g}$)",
+                options: ["62.5 g", "50.0 g", "75.0 g", "40.0 g"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "Steam at $100^\\circ\\text{C}$ is passed into $22\\text{ g}$ of water at $20^\\circ\\text{C}$. How much mass of steam condenses to raise water temperature to $100^\\circ\\text{C}$? ($L_v = 540\\text{ cal/g}$)",
+                options: ["3.26 g", "4.50 g", "2.80 g", "5.12 g"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "A copper sphere of mass $100\\text{ g}$ is heated to $100^\\circ\\text{C}$ and dropped into $100\\text{ g}$ of water in calorimeter at $20^\\circ\\text{C}$. Final temperature is $26^\\circ\\text{C}$. Find specific heat of copper ($s_{water} = 1\\text{ cal/g}\\cdot^\\circ\\text{C}$).",
+                options: ["0.081 cal/g·°C", "0.092 cal/g·°C", "0.12 cal/g·°C", "0.05 cal/g·°C"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "Two identical metal plates $A$ and $B$ have emissivities $0.2$ and $0.8$ respectively. If both emit heat at same rate, what is the ratio of their absolute temperatures $T_A / T_B$?",
+                options: ["\\sqrt{2} : 1", "2 : 1", "4 : 1", "\\sqrt[4]{2} : 1"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "A cylindrical metal rod of length $50\\text{ cm}$ and diameter $2\\text{ cm}$ conducts $200\\text{ J/s}$ heat under steady state. If length is doubled and diameter is doubled, rate of heat flow under same temperature difference is:",
+                options: ["400 J/s", "200 J/s", "100 J/s", "800 J/s"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "The temperature of junction of two bars of equal cross-section with thermal conductivities $K$ and $2K$ and lengths $L$ and $2L$ with outer ends at $100^\\circ\\text{C}$ and $0^\\circ\\text{C}$ is:",
+                options: ["50°C", "33.3°C", "66.7°C", "40°C"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "A sphere, a cube, and a thin circular plate, all made of copper and having same mass, are heated to $200^\\circ\\text{C}$ and allowed to cool. Which cools fastest?",
+                options: ["Thin circular plate", "Cube", "Sphere", "All cool at same rate"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "Find heat energy radiated per minute by a black sphere of radius $5\\text{ cm}$ maintained at $127^\\circ\\text{C}$. ($\n\\sigma = 5.67 \\times 10^{-8}\\text{ W/m}^2\\cdot\\text{K}^4$).",
+                options: ["273.7 J", "45.6 J", "1642 J", "812 J"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "A room is at $20^\\circ\\text{C}$. A hot body cools from $61^\\circ\\text{C}$ to $59^\\circ\\text{C}$ in $4\\text{ minutes}$. Find time taken to cool from $51^\\circ\\text{C}$ to $49^\\circ\\text{C}$.",
+                options: ["5 minutes", "6 minutes", "4.5 minutes", "7 minutes"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "Calculate water equivalent of a copper calorimeter of mass $200\\text{ g}$ if specific heat of copper is $0.09\\text{ cal/g}\\cdot^\\circ\\text{C}$.",
+                options: ["18 g", "22 g", "180 g", "36 g"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "A bullet of mass $10\\text{ g}$ moving at $200\\text{ m/s}$ hits a wooden block and comes to rest. Assuming $50\\%$ of kinetic energy converts into heat absorbed by bullet, calculate temperature rise of lead bullet ($s = 126\\text{ J/kg}\\cdot\\text{K}$).",
+                options: ["79.37°C", "158.7°C", "39.68°C", "100°C"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "Ratio of thermal conductivities of two metals $A$ and $B$ is $4:3$. For same rate of heat conduction per unit area, thermal gradient ratio $G_A : G_B$ must be:",
+                options: ["3 : 4", "4 : 3", "16 : 9", "9 : 16"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "An ice layer of thickness $5\\text{ cm}$ is formed on a lake. Temperature of air is $-10^\\circ\\text{C}$. Time taken for ice layer to increase from $5\\text{ cm}$ to $10\\text{ cm}$ is ($K_{ice} = 0.005\\text{ cal/s}\\cdot\\text{cm}\\cdot^\\circ\\text{C}$, $\\rho_{ice} = 0.9\\text{ g/cm}^3$, $L = 80\\text{ cal/g}$):",
+                options: ["27000 s", "18000 s", "36000 s", "9000 s"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "Solar constant $S = 1360\\text{ W/m}^2$. If distance between Earth and Sun is doubled, the new solar constant will be:",
+                options: ["340 W/m²", "680 W/m²", "1360 W/m²", "2720 W/m²"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "Three rods of same material, length, and cross-section form an equilateral triangle $ABC$. $A$ and $B$ are kept at $100^\\circ\\text{C}$ and $0^\\circ\\text{C}$. Temperature of midpoint of rod $AB$ under steady state is:",
+                options: ["50°C", "75°C", "25°C", "60°C"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "Which of the following thermal curves represents Wien's Displacement Law ($\n\\lambda_m$ vs $T$)?",
+                options: ["Rectangular Hyperbola", "Straight Line passing through origin", "Parabola", "Exponential decay"],
+                correct: 0
+            },
+            {
+                category: "Numerical / Critical",
+                text: "Specific heat of a substance varies with temperature as $s = 0.2 + 0.14 T + 0.023 T^2\\text{ (cal/g}\\cdot^\\circ\\text{C})$. Heat required to raise temperature of $2\\text{ g}$ from $0^\\circ\\text{C}$ to $5^\\circ\\text{C}$ is:",
+                options: ["5.71 cal", "11.42 cal", "2.85 cal", "8.92 cal"],
+                correct: 0
+            }
+        ];
+
+        // GLOBAL APP STATE VARIABLES
+        let questions = []; 
+        let candidateResponses = []; 
+        let currentQIndex = 0;
+        let timerInterval = null;
+        let totalTimeSeconds = 3600; // 1 hour = 3600 seconds
+        let candidateName = "";
+        let tabSwitchCount = 0;
+        let generatedCaptcha = "";
+        let performanceChartInstance = null;
+
+        window.onload = function() {
+            setTodayDateHint();
+            generateCaptcha();
+            setupProctoring();
+        };
+
+        // Format Today's Date String for Password Hint
+        function setTodayDateHint() {
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            const dateStr = `${dd}${mm}${yyyy}`;
+            document.getElementById('pwd-hint-date').innerText = dateStr;
+        }
+
+        // Generate Random Captcha
+        function generateCaptcha() {
+            const chars = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+            let captcha = '';
+            for (let i = 0; i < 5; i++) {
+                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            generatedCaptcha = captcha;
+            document.getElementById('captcha-box').innerText = captcha;
+        }
+
+        function setupProctoring() {
+            // Block Context Menu & Key Combinations
+            document.addEventListener('contextmenu', e => e.preventDefault());
+            document.addEventListener('keydown', e => {
+                if (e.ctrlKey || e.metaKey || e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
+                    e.preventDefault();
+                }
+            });
+
+            // Tab Switching & Focus Loss Detection
+            window.addEventListener('blur', () => {
+                if (document.getElementById('cbt-interface').classList.contains('hidden')) return;
+                tabSwitchCount++;
+                if (tabSwitchCount >= 3) {
+                    alert("SECURITY VIOLATION: 3 Tab switches detected. Exam auto-submitted.");
+                    submitTest();
+                } else {
+                    alert(`SECURITY WARNING (${tabSwitchCount}/3): Leaving exam window or changing tabs is strictly monitored!`);
+                }
+            });
+        }
+
+        function validateLogin(e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('candidate-name').value.trim();
+            const pwdInput = document.getElementById('exam-password').value.trim();
+            const captchaInput = document.getElementById('captcha-input').value.trim().toUpperCase();
+            const errorDiv = document.getElementById('login-error');
+
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            const expectedDatePassword = `${dd}${mm}${yyyy}`;
+
+            if (pwdInput !== expectedDatePassword) {
+                errorDiv.innerText = "Invalid Today's Password! Format must be DDMMYYYY matching current date.";
+                errorDiv.classList.remove('hidden');
+                return;
+            }
+
+            if (captchaInput !== generatedCaptcha) {
+                errorDiv.innerText = "Invalid Captcha Code. Please re-enter.";
+                errorDiv.classList.remove('hidden');
+                generateCaptcha();
+                return;
+            }
+
+            candidateName = nameInput;
+            document.getElementById('display-candidate-name').innerText = candidateName;
+
+            // Trigger Fullscreen
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen().catch(() => {});
+            }
+
+            // Shuffle Questions and Options for Dynamic Unique Session
+            initializeShuffledQuestions();
+
+            // Hide Login & Show CBT Exam Interface
+            document.getElementById('login-screen').classList.add('hidden');
+            document.getElementById('cbt-interface').classList.remove('hidden');
+            document.getElementById('header-timer').classList.remove('hidden');
+
+            startTimer();
+            renderQuestion(0);
+            renderPalette();
+        }
+
+        // Shuffle Array Helper
+        function shuffleArray(arr) {
+            const array = [...arr];
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function initializeShuffledQuestions() {
+            const shuffledRaw = shuffleArray(rawQuestions);
+            questions = shuffledRaw.map((q) => {
+                const originalOptions = [...q.options];
+                const correctAnswerText = originalOptions[q.correct];
+                
+                const shuffledOpts = shuffleArray(originalOptions);
+                const newCorrectIndex = shuffledOpts.indexOf(correctAnswerText);
+
+                return {
+                    category: q.category,
+                    text: q.text,
+                    options: shuffledOpts,
+                    correct: newCorrectIndex
+                };
+            });
+
+            candidateResponses = questions.map(() => ({
+                selectedIndex: null,
+                status: 'unvisited'
+            }));
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                totalTimeSeconds--;
+                
+                const hrs = Math.floor(totalTimeSeconds / 3600);
+                const mins = Math.floor((totalTimeSeconds % 3600) / 60);
+                const secs = totalTimeSeconds % 60;
+
+                document.getElementById('timer-display').innerText = 
+                    `${String(hrs).padStart(2,'0')}:${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+
+                if (totalTimeSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    alert("Time expired! Your examination paper is auto-submitting.");
+                    submitTest();
+                }
+            }, 1000);
+        }
+
+        function renderQuestion(index) {
+            currentQIndex = index;
+
+            if (candidateResponses[index].status === 'unvisited') {
+                candidateResponses[index].status = 'skipped';
+            }
+
+            const q = questions[index];
+            document.getElementById('q-category-tag').innerText = q.category;
+            document.getElementById('q-number-title').innerText = `Question ${index + 1} of ${questions.length}`;
+            document.getElementById('question-text').innerHTML = q.text;
+
+            const optsContainer = document.getElementById('options-container');
+            optsContainer.innerHTML = '';
+
+            const selectedOpt = candidateResponses[index].selectedIndex;
+
+            q.options.forEach((optText, optIdx) => {
+                const isSelected = selectedOpt === optIdx;
+                const optDiv = document.createElement('div');
+                optDiv.onclick = () => selectOption(optIdx);
+                optDiv.className = `p-3.5 rounded-xl border-2 cursor-pointer flex items-center space-x-3 transition ${
+                    isSelected 
+                    ? 'border-indigo-600 bg-indigo-50/80 text-indigo-950 font-semibold shadow-sm' 
+                    : 'border-slate-200 hover:border-slate-300 bg-white text-slate-700'
+                }`;
+
+                optDiv.innerHTML = `
+                    <div class="w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
+                        isSelected ? 'border-indigo-600 bg-indigo-600 text-white' : 'border-slate-400 text-slate-500'
+                    }">
+                        ${String.fromCharCode(65 + optIdx)}
+                    </div>
+                    <div class="text-sm flex-grow">${optText}</div>
+                `;
+                optsContainer.appendChild(optDiv);
+            });
+
+            document.getElementById('btn-prev').disabled = index === 0;
+            document.getElementById('btn-next').innerHTML = index === questions.length - 1 
+                ? 'Save & Submit <i class="fa-solid fa-check ml-1"></i>' 
+                : 'Save & Next <i class="fa-solid fa-chevron-right ml-1"></i>';
+
+            renderPalette();
+
+            if (window.MathJax) {
+                MathJax.typesetPromise([document.getElementById('question-scroll-area')]).catch(()=>{});
+            }
+        }
+
+        function selectOption(optIdx) {
+            candidateResponses[currentQIndex].selectedIndex = optIdx;
+            candidateResponses[currentQIndex].status = 'answered';
+            renderQuestion(currentQIndex);
+        }
+
+        function clearResponse() {
+            candidateResponses[currentQIndex].selectedIndex = null;
+            candidateResponses[currentQIndex].status = 'skipped';
+            renderQuestion(currentQIndex);
+        }
+
+        function markForReview() {
+            candidateResponses[currentQIndex].status = 'review';
+            navigateQuestion(1);
+        }
+
+        function navigateQuestion(step) {
+            const nextIdx = currentQIndex + step;
+            if (nextIdx >= 0 && nextIdx < questions.length) {
+                renderQuestion(nextIdx);
+            } else if (nextIdx >= questions.length) {
+                confirmSubmitTest();
+            }
+        }
+
+        function renderPalette() {
+            const grid = document.getElementById('palette-grid');
+            grid.innerHTML = '';
+
+            candidateResponses.forEach((resp, idx) => {
+                const btn = document.createElement('button');
+                btn.onclick = () => renderQuestion(idx);
+
+                let dotClass = 'dot-unvisited';
+                if (resp.status === 'answered') dotClass = 'dot-answered';
+                else if (resp.status === 'skipped') dotClass = 'dot-skipped';
+                else if (resp.status === 'review') dotClass = 'dot-review';
+
+                const isCurrent = idx === currentQIndex;
+
+                btn.className = `w-9 h-9 rounded-full font-bold text-xs flex items-center justify-center transition border-2 ${dotClass} ${
+                    isCurrent ? 'ring-2 ring-indigo-600 ring-offset-2 scale-105' : ''
+                }`;
+                btn.innerText = idx + 1;
+                grid.appendChild(btn);
+            });
+        }
+
+        function confirmSubmitTest() {
+            if (confirm("Are you sure you want to submit your Physics examination paper?")) {
+                submitTest();
+            }
+        }
+
+        function submitTest() {
+            clearInterval(timerInterval);
+
+            let correctCount = 0;
+            let incorrectCount = 0;
+            let unattemptedCount = 0;
+
+            candidateResponses.forEach((resp, idx) => {
+                if (resp.selectedIndex === null) {
+                    unattemptedCount++;
+                } else if (resp.selectedIndex === questions[idx].correct) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+            });
+
+            const totalScore = (correctCount * 4) - (incorrectCount * 1);
+            const totalAttempted = correctCount + incorrectCount;
+            const accuracy = totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 0;
+            const submissionTime = new Date().toLocaleString('en-IN');
+
+            document.getElementById('cbt-interface').classList.add('hidden');
+            document.getElementById('header-timer').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+
+            document.getElementById('res-name').innerText = candidateName;
+            document.getElementById('res-score').innerText = `${totalScore} / 180`;
+            document.getElementById('res-correct').innerText = correctCount;
+            document.getElementById('res-incorrect').innerText = incorrectCount;
+            document.getElementById('res-accuracy').innerText = `${accuracy}%`;
+            document.getElementById('res-timestamp').innerText = submissionTime;
+
+            document.getElementById('cert-name').innerText = candidateName;
+            document.getElementById('cert-score').innerText = `${totalScore} / 180`;
+            document.getElementById('cert-correct').innerText = correctCount;
+            document.getElementById('cert-incorrect').innerText = incorrectCount;
+            document.getElementById('cert-accuracy').innerText = `${accuracy}%`;
+            document.getElementById('cert-date').innerText = submissionTime;
+
+            renderChart(correctCount, incorrectCount, unattemptedCount);
+        }
+
+        function renderChart(correct, incorrect, unattempted) {
+            const ctx = document.getElementById('performanceChart').getContext('2d');
+            
+            if (performanceChartInstance) {
+                performanceChartInstance.destroy();
+            }
+
+            performanceChartInstance = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Correct (+4)', 'Incorrect (-1)', 'Unattempted (0)'],
+                    datasets: [{
+                        data: [correct, incorrect, unattempted],
+                        backgroundColor: ['#22c55e', '#ef4444', '#cbd5e1'],
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    cutout: '70%'
+                }
+            });
+        }
+
+        function generateAndSendWhatsAppPNG() {
+            const certCard = document.getElementById('certificate-card');
+            certCard.classList.remove('hidden');
+
+            html2canvas(certCard, {
+                scale: 2,
+                backgroundColor: "#ffffff",
+                useCORS: true
+            }).then(canvas => {
+                certCard.classList.add('hidden');
+
+                const imageURI = canvas.toDataURL("image/png");
+
+                const downloadLink = document.createElement('a');
+                downloadLink.download = `${candidateName.replace(/\s+/g, '_')}_NEET_Physics_Series7_Scorecard.png`;
+                downloadLink.href = imageURI;
+                downloadLink.click();
+
+                const scoreText = document.getElementById('res-score').innerText;
+                const correctText = document.getElementById('res-correct').innerText;
+                const incorrectText = document.getElementById('res-incorrect').innerText;
+
+                const message = encodeURIComponent(
+                    `Hello Soumendra Sir,\n\nHere is my official NEET Physics CBT Scorecard:\n` +
+                    `*Candidate:* ${candidateName}\n` +
+                    `*Exam:* NEET PHYSICS XI EXAM SERIES 7 SET A\n` +
+                    `*Topic:* Thermal Properties & Calorimetry\n` +
+                    `*Total Score:* ${scoreText}\n` +
+                    `*Correct Answers:* ${correctText}\n` +
+                    `*Incorrect Answers:* ${incorrectText}\n\n` +
+                    `I have attached my downloaded PNG Scorecard image as proof.`
+                );
+
+                const whatsappUrl = `https://wa.me/918910587106?text=${message}`;
+                window.open(whatsappUrl, '_blank');
+            }).catch(() => {
+                certCard.classList.add('hidden');
+                alert("Failed to generate PNG certificate image. Please try again.");
+            });
+        }
+    </script>
+</body>
+</html>
